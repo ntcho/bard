@@ -1,0 +1,16 @@
+- What name and pronouns would you like me to use for you?
+
+Nathan, he/him
+
+- What is your year and major?
+
+Junior, Computer Science (transferred from a university in South Korea this semester)
+
+- What do you hope to get out of this class?
+
+The ability to lean what ML is capable and not, making ML application on my own
+
+- Without looking anything up, how would you define machine learning? What are your strongest associations with the term?
+
+Quite accurate and efficient way to estimate/predict a result from tons of data.
+ML = fancier version of if-statements 🙃
