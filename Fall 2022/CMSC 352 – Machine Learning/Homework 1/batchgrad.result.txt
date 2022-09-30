@@ -1,0 +1,75 @@
+Iteration 1
+Weights are currently <0.007630, 0.909380>
+Current cost: 12276.569740
+Iteration 2
+Weights are currently <0.002310, 0.267722>
+Current cost: 6215.537392
+Iteration 3
+Weights are currently <0.006127, 0.720475>
+Current cost: 3197.932333
+Iteration 4
+Weights are currently <0.003497, 0.401012>
+Current cost: 1695.557823
+Iteration 5
+Weights are currently <0.005416, 0.626424>
+Current cost: 947.570851
+Iteration 6
+Weights are currently <0.004125, 0.467373>
+Current cost: 575.170654
+Iteration 7
+Weights are currently <0.005099, 0.579599>
+Current cost: 389.763772
+Iteration 8
+Weights are currently <0.004475, 0.500412>
+Current cost: 297.455215
+Iteration 9
+Weights are currently <0.004978, 0.556286>
+Current cost: 251.497502
+Iteration 10
+Weights are currently <0.004686, 0.516861>
+Current cost: 228.616476
+Iteration 11
+Weights are currently <0.004956, 0.544678>
+Current cost: 217.224635
+Iteration 12
+Weights are currently <0.004829, 0.525050>
+Current cost: 211.552912
+Iteration 13
+Weights are currently <0.004982, 0.538899>
+Current cost: 208.729064
+Iteration 14
+Weights are currently <0.004937, 0.529126>
+Current cost: 207.323086
+Iteration 15
+Weights are currently <0.005032, 0.536022>
+Current cost: 206.623023
+Iteration 16
+Weights are currently <0.005028, 0.531156>
+Current cost: 206.274413
+Iteration 17
+Weights are currently <0.005094, 0.534589>
+Current cost: 206.100782
+Iteration 18
+Weights are currently <0.005111, 0.532166>
+Current cost: 206.014268
+Iteration 19
+Weights are currently <0.005162, 0.533875>
+Current cost: 205.971126
+Iteration 20
+Weights are currently <0.005189, 0.532668>
+Current cost: 205.949578
+Iteration 21
+Weights are currently <0.005233, 0.533519>
+Current cost: 205.938780
+Iteration 22
+Weights are currently <0.005265, 0.532918>
+Current cost: 205.933336
+Iteration 23
+Weights are currently <0.005306, 0.533342>
+Current cost: 205.930556
+Iteration 24
+Weights are currently <0.005340, 0.533043>
+Current cost: 205.929103
+Iteration 25
+Weights are currently <0.005379, 0.533253>
+Current cost: 205.928311

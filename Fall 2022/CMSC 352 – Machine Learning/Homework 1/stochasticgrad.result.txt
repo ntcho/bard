@@ -1,0 +1,18 @@
+Iteration 1
+Weights are currently <0.004051, 0.471734>
+Current cost: 527.864487
+Iteration 2
+Weights are currently <0.004616, 0.533686>
+Current cost: 205.953051
+
+# without additional break
+
+Iteration 1
+Weights are currently <0.004051, 0.471734>
+Current cost: 527.864487
+Iteration 2
+Weights are currently <0.004616, 0.533686>
+Current cost: 205.953051
+Iteration 3
+Weights are currently <0.004722, 0.541822>
+Current cost: 212.312427
