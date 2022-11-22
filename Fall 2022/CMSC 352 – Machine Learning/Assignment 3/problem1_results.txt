@@ -1,0 +1,52 @@
+Completed reading IMDB_BOW.pkl                                         [0.957s elapsed]
+Completed shuffling dataset                                            [7.426s elapsed]
+Completed normalizing features                                         [6.226s elapsed]
+Completed splitting training, validation and test set                  [0.000s elapsed]
+
+Started training k-nearest neighbors
+Completed training k-nearest neighbors                                  [1.786s elapsed]
+[k-nearest neighbors] Performance analysis:
+accuracy:  0.582
+precision: 0.672
+recall:    0.320
+Completed validating k-nearest neighbors                                [13.436s elapsed]
+
+Started training decision tree
+Completed training decision tree                                       [54.357s elapsed]
+[decision tree] Performance analysis:
+accuracy:  0.720
+precision: 0.719
+recall:    0.723
+Completed validating decision tree                                     [0.084s elapsed]
+
+Started training logistic regression
+Completed training logistic regression                                 [18.021s elapsed]
+[logistic regression] Performance analysis:
+accuracy:  0.845
+precision: 0.843
+recall:    0.848
+Completed validating logistic regression                               [0.144s elapsed]
+
+Started training linear support vector
+Completed training linear support vector                               [253.473s elapsed]
+[linear support vector] Performance analysis:
+accuracy:  0.845
+precision: 0.840
+recall:    0.852
+Completed validating linear support vector                             [0.097s elapsed]
+
+Started training support vector
+Completed training support vector                                      [2134.999s elapsed]
+[support vector] Performance analysis:
+accuracy:  0.886
+precision: 0.864
+recall:    0.914
+Completed validating support vector                                    [362.172s elapsed]
+
+Started training random forest
+Completed training random forest                                       [49.210s elapsed]
+[random forest] Performance analysis:
+accuracy:  0.843
+precision: 0.840
+recall:    0.847
+Completed validating random forest                                     [0.228s elapsed]
