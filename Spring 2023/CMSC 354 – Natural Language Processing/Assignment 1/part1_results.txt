@@ -1,0 +1,85 @@
+Using blake-poems.txt from nltk.corpus.gutenberg:
+- 8354 words, 438 sentences
+
+Unigram with MLE
+----------------
+Generate sentences (len=12)
+- was voice,, sweetest of maid THE in in heat;
+- I, and;, are thy sigh put Frame for Nor
+- kiss' Near GIRL of me thee, because, FOUND dwelling
+
+Compute perplexity
+-  456.4, 0 UNK, 'He replied that he had not.'
+-    inf, 1 UNK, 'You do not know what I <UNK>.'
+-    inf, 3 UNK, 'Do you <UNK> your <UNK> at us, <UNK>?'
+-    inf, 1 UNK, '<UNK> to think of her.'
+-    inf, 1 UNK, 'The white <UNK> had had nothing to do with it.'
+-  986.3, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-  219.1, 0 UNK, 'Night and morning with my tears,'
+-  459.8, 0 UNK, 'kiss' Near GIRL of me thee, because, FOUND dwelling'
+- 2583.9, 0 UNK, 'heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay'
+-  639.1, 0 UNK, 'human Brain . nibbled, sweeter smile, ON'
+-  345.4, 0 UNK, 'hand?'
+
+
+Unigram with tf-idf
+-------------------
+Generate sentences (len=12)
+- watery walked Bowed Dare skylark morn joy Secresy frowning fruitful fade INFANT
+- Motto Earth Weeping IMAGE Chase Willm tired river pearly Maker delight Printer
+- heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay
+
+Compute perplexity
+-    inf, 0 UNK, 'He replied that he had not.'
+-    inf, 1 UNK, 'You do not know what I <UNK>.'
+-    inf, 3 UNK, 'Do you <UNK> your <UNK> at us, <UNK>?'
+-    inf, 1 UNK, '<UNK> to think of her.'
+-    inf, 1 UNK, 'The white <UNK> had had nothing to do with it.'
+-    inf, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-    inf, 0 UNK, 'Night and morning with my tears,'
+-    inf, 0 UNK, 'kiss' Near GIRL of me thee, because, FOUND dwelling'
+-  496.5, 0 UNK, 'heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay'
+-    inf, 0 UNK, 'human Brain . nibbled, sweeter smile, ON'
+-    inf, 0 UNK, 'hand?'
+
+
+Bigram with MLE
+---------------
+Generate sentences (len=12)
+- wanderer, And I turned to see In the morning dew,
+- A SONG, Or think they seemed, We '
+- human Brain . nibbled, sweeter smile, ON
+
+Compute perplexity
+-    inf, 0 UNK, 'He replied that he had not.'
+-    inf, 1 UNK, 'You do not know what I <UNK>.'
+-    inf, 3 UNK, 'Do you <UNK> your <UNK> at us, <UNK>?'
+-    inf, 1 UNK, '<UNK> to think of her.'
+-    inf, 1 UNK, 'The white <UNK> had had nothing to do with it.'
+-    7.3, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-   23.8, 0 UNK, 'Night and morning with my tears,'
+-    inf, 0 UNK, 'kiss' Near GIRL of me thee, because, FOUND dwelling'
+-    inf, 0 UNK, 'heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay'
+-    inf, 0 UNK, 'human Brain . nibbled, sweeter smile, ON'
+-    inf, 0 UNK, 'hand?'
+
+
+Trigram with MLE
+----------------
+Generate sentences (len=12)
+- virtues of delight!
+- IV.
+- hand?
+
+Compute perplexity
+-    inf, 0 UNK, 'He replied that he had not.'
+-    inf, 1 UNK, 'You do not know what I <UNK>.'
+-    inf, 3 UNK, 'Do you <UNK> your <UNK> at us, <UNK>?'
+-    inf, 1 UNK, '<UNK> to think of her.'
+-    inf, 1 UNK, 'The white <UNK> had had nothing to do with it.'
+-    inf, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-    inf, 0 UNK, 'Night and morning with my tears,'
+-    inf, 0 UNK, 'kiss' Near GIRL of me thee, because, FOUND dwelling'
+-    inf, 0 UNK, 'heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay'
+-    inf, 0 UNK, 'human Brain . nibbled, sweeter smile, ON'
+-    inf, 0 UNK, 'hand?'

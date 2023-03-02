@@ -1,8 +1,8 @@
-from nltk import corpus, util, lm, tokenize
+from nltk import corpus, lm, tokenize
 from nltk.util import ngrams
 
 fileid = "blake-poems.txt"  # Using blake-poems
-# fileid = "bible-kjv.txt"  # Using bible
+fileid = "bible-kjv.txt"  # Using bible
 
 words = corpus.gutenberg.words(fileid)
 sents = corpus.gutenberg.sents(fileid)
@@ -51,10 +51,10 @@ def compute_perplexity(
             "Where a thousand fighting men in ambush lie!",
             "Night and morning with my tears,",
             # sentences generated from blake-poems
-            "kiss' Near GIRL of me thee, because, FOUND dwelling", # unigram
-            "heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay", # unigram with tf-idf
-            "human Brain . nibbled, sweeter smile, ON", # bigram
-            "hand?", # trigram
+            "kiss' Near GIRL of me thee, because, FOUND dwelling",  # unigram
+            "heaven APPENDIX Prays Maker morn knits thee Deceit ancient Among Lyca clay",  # unigram with tf-idf
+            "human Brain . nibbled, sweeter smile, ON",  # bigram
+            "hand?",  # trigram
         ]
     ],
 ):
@@ -193,7 +193,7 @@ unigram_tf_idf_train, unigram_tf_idf_vocab = lm.preprocessing.padded_everygram_p
 
 lm_unigram_tf_idf = TfIdf(
     [
-        # load entire gutenberg corpus books tof tf-idf
+        # load entire gutenberg corpus books to tf-idf
         corpus.gutenberg.words("austen-emma.txt"),
         corpus.gutenberg.words("austen-persuasion.txt"),
         corpus.gutenberg.words("austen-sense.txt"),

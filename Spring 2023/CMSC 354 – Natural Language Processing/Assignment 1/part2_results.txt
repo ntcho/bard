@@ -1,0 +1,61 @@
+Using all books from nltk.corpus.gutenberg:
+- 98503 sentences
+
+Unigram with MLE
+----------------
+Generate sentences (len=12)
+- were was,, the round of all live load it:
+- Isaiah . but:, called tract teach she Honourable him Till
+- my, They I ruminant of through, counsel, Have happened
+
+Compute perplexity
+-  251.5, 0 UNK, 'He replied that he had not.'
+-  507.0, 0 UNK, 'You do not know what I suffer.'
+- 1486.5, 0 UNK, 'Do you bite your thumb at us, sir?'
+-  494.7, 0 UNK, 'Forget to think of her.'
+-  669.2, 0 UNK, 'The white kitten had had nothing to do with it.'
+- 2734.2, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-  583.0, 0 UNK, 'Night and morning with my tears,'
+-  775.9, 0 UNK, 'my, They I ruminant of through, counsel, Have happened'
+-  283.2, 0 UNK, 'made, and come to rock or a letter, and money'
+-  573.7, 0 UNK, 'it, and come to public disgrace if Franklin had not had'
+
+
+Bigram with MLE
+---------------
+Generate sentences (len=12)
+- well versed in THAT voices of the drunkard found it is all
+- " Let her, and upon thee in consequence in haste
+- made, and come to rock or a letter, and money
+
+Compute perplexity
+-   36.2, 0 UNK, 'He replied that he had not.'
+-   30.9, 0 UNK, 'You do not know what I suffer.'
+-    inf, 0 UNK, 'Do you bite your thumb at us, sir?'
+-    inf, 0 UNK, 'Forget to think of her.'
+-    inf, 0 UNK, 'The white kitten had had nothing to do with it.'
+-  109.0, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-  354.7, 0 UNK, 'Night and morning with my tears,'
+-    inf, 0 UNK, 'my, They I ruminant of through, counsel, Have happened'
+-    inf, 0 UNK, 'made, and come to rock or a letter, and money'
+-    inf, 0 UNK, 'it, and come to public disgrace if Franklin had not had'
+
+
+Trigram with MLE
+----------------
+Generate sentences (len=12)
+- way up as a strange speech and my mother; but I
+- 17: 12 All the unaccomplished works of engineers, Our
+- it, and come to public disgrace if Franklin had not had
+
+Compute perplexity
+-    inf, 0 UNK, 'He replied that he had not.'
+-    9.8, 0 UNK, 'You do not know what I suffer.'
+-    inf, 0 UNK, 'Do you bite your thumb at us, sir?'
+-    inf, 0 UNK, 'Forget to think of her.'
+-    inf, 0 UNK, 'The white kitten had had nothing to do with it.'
+-    8.4, 0 UNK, 'Where a thousand fighting men in ambush lie!'
+-    inf, 0 UNK, 'Night and morning with my tears,'
+-    inf, 0 UNK, 'my, They I ruminant of through, counsel, Have happened'
+-    inf, 0 UNK, 'made, and come to rock or a letter, and money'
+-    inf, 0 UNK, 'it, and come to public disgrace if Franklin had not had'
