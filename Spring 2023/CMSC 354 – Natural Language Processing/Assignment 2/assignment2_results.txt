@@ -1,0 +1,12 @@
+training: reading training data
+training: reading vocabulary data
+training: calculating prior probabilities
+training: calculating likelihood probabilities
+100%|██████████████████████████████████████████████████████████| 89527/89527 [1:12:57<00:00, 20.45it/s]
+
+testing: reading testing data
+testing: evaluating model performance
+100%|████████████████████████████████████████████████████████████| 25000/25000 [17:40<00:00, 23.57it/s]
+- Accuracy:  0.817
+- Precision: 0.870
+- Recall:    0.746
