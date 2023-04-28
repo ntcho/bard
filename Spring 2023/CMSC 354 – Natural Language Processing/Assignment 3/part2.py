@@ -37,22 +37,27 @@ def parse(
     grammar_terminals: dict,
     verbose: bool = False,
 ) -> list[list[str]]:
+    # CKY parse table
     table = [[list() for _ in words] for _ in words]
 
+    # log progress if verbose is True
     if verbose:
         log = lambda x: print(x)
     log = lambda x: x
 
+    # iterate through all words in the sentence
     for j, word in enumerate(words):
-        for nt in grammar_nonterminals:
-            if word in grammar_nonterminals[nt]:
-                table[j][j].append(nt)
+        # check whether the word is in the grammar
         for t in grammar_terminals:
+            # only checking terminal grammars
             if word in grammar_terminals[t] or word.lower() in grammar_terminals[t]:
                 table[j][j].append(t)
 
+        # fill the upper diagonal
         for i in range(j - 1, 0 - 1, -1):
             log(f"filling table[{i}][{j}]")
+            # fill table[i,j] with comparing table[i,k] and table[k+1,j]
+            # where k is from i from j-1
             for k in range(i, j):
                 log(f"  comparing table[{i}][{k}] and table[{k+1}][{j}]")
                 for nt in grammar_nonterminals:
@@ -61,6 +66,7 @@ def parse(
                             f"    checking {rm} table[{i}][{k}]={table[i][k]} \
                                 and table[{k+1}][{j}]={table[k + 1][j]}"
                         )
+                        # check whether nt -> table[i,k] table[k+1,j] exists
                         if rm[0] in table[i][k] and rm[1] in table[k + 1][j]:
                             log(f"      added '{nt}' to table[{i}][{j}]")
                             table[i][j].append(nt)
