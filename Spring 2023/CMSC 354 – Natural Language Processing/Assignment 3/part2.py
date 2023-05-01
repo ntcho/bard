@@ -85,7 +85,9 @@ for s in [
     parseable = "S" in t[0][-1]
 
     print(f"sentence='{s}'")
-    print("\t".join(s.split()))
-    print("\n".join(["\t".join([",".join(c) for c in r]) for r in t]))
+    print()
+    print(" | ".join(["{:15}".format(w) for w in s.split()]))
+    print("-+-".join([("-" * 15) for _ in s.split()]))
+    print("\n".join([" | ".join(["{:15}".format(",".join(c)) for c in r]) for r in t]))
     print(f"parseable = {parseable}")
     print()
