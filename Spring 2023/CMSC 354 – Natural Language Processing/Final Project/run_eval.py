@@ -1,5 +1,6 @@
 import re
 import json
+import os
 import time
 from utils import ChatScenario, ChatSession
 
@@ -55,6 +56,20 @@ Answer: [PREFER_A|PREFER_B]"""
 
         return prompts
 
+    def evaluate_sessions(
+        self, sessions: tuple[ChatSession, bool], export: bool = True
+    ):
+        results = [dict({"A": 0, "B": 0, "X": 0}) for _ in self.situations]
+
+        for session in sessions:
+            answers = self.evaluate_session(session[0], session[1])
+            for i, a in enumerate(answers):
+                results[i][a] += 1
+
+        self.export_result(results)
+
+        return results
+
     def evaluate_session(self, session: ChatSession, reversed: bool = False):
         answers = []
         answer_literals = (
@@ -91,51 +106,61 @@ Answer: [PREFER_A|PREFER_B]"""
     def start(self):
         for reversed in [False, True]:  # test for both type A and B
             prompts = self.get_prompts(reversed)
-            sessions = []
+            sessions = []  # will contain tuple of tuple[ChatSession, bool]
 
             # Repeat scenario
             for i in range(self.repeat):
                 scenario = ChatScenario(f"response-{i+1}", prompts, reversed)
                 session = scenario.start()  # start API call
-                sessions.append(session)
+                sessions.append(tuple([session, reversed]))
 
-            for session in sessions:
-                answers = self.evaluate_session(session, reversed)
-                for i, a in enumerate(answers):
-                    self.results[i][a] += 1
-
-        # Export results
-        self.export_result()
+        # Evaluate responses and export results
+        self.results = self.evaluate_sessions(sessions)
 
         return self.results
 
-    def import_sessions(self, scenario_ids):
-        # TODO: scan directory and import sessions
-        pass
+    def import_sessions(self, scenario_ids: list[str]):
+        message_filenames = []
+        response_filenames = []
 
-    def export_result(self):
+        for file in os.listdir():
+            for id in scenario_ids:
+                if file.startswith(id) and file.endswith(".json"):
+                    # matches {id}-YYYYMMDD-HHMMSS-[messages|responses].json files
+                    if "messages.json" in file:
+                        message_filenames.append(file)
+                    elif "responses.json" in file:
+                        response_filenames.append(file)
+
+        if len(response_filenames) != len(message_filenames):
+            raise FileNotFoundError("Response - Message pairs do not match")
+
+        sessions = []  # will contain tuple of tuple[ChatSession, bool]
+
+        for i in range(len(response_filenames)):
+            reversed = "reversed" in response_filenames[i]
+            session = ChatSession()
+            session.import_session(message_filenames[0], response_filenames[0])
+            sessions.append(tuple([session, reversed]))
+
+        # Evaluate responses and export results
+        self.results = self.evaluate_sessions(sessions)
+
+        return self.results
+
+    def export_result(self, results: list[tuple]):
         current_time = time.strftime(
             "%Y%m%d-%H%M%S"
         )  # timestamp in YYYYMMDD-HHMMSS format
 
         # Export results to file
         with open(f"{current_time}-results.json", "w") as file:
-            json.dump(self.results, file)
+            json.dump(results, file)
 
 
-# test = ChatScenario(
-#     "test",
-#     [
-#         'respond only with "hello"',
-#         'respond only with "hola"',
-#     ]
-# )
-
-# test.start()
-
-
+# Setup evaluation details
 eval = Evaluation(
-    [
+    situations=[
         Evaluation.Situation(
             "50% chance to win 1000, 50% chance to win nothing",
             "100% chance to win 450",
@@ -145,7 +170,16 @@ eval = Evaluation(
             "100% chance to lose 450",
         ),
     ],
-    2,
+    repeat=2,
 )
 
+# Evaluate using OpenAI API
 eval.start()
+
+# Evaluate using existing API responses
+# eval.import_sessions(
+#     [
+#         "response-1",
+#         "response-2",
+#     ]
+# )
