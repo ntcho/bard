@@ -272,16 +272,20 @@ Answer: [PREFER_A|PREFER_B]"""
                 answers.append("X")  # indecisive or error
 
         if len(answers) != len(self.situations):
-            print(
-                "WARNING: Situation - Answer mismatch, check individual responses below"
-            )
-            print(answer_literals)
+            print(f"WARNING: Situation - Answer mismatch at {session.scenario_id}")
+            print(f"    expected {len(self.situations)}, but got {len(answers)}")
+            print(f"    answers=\n{answer_literals}")
 
         return answers, answer_literals
 
-    def start(self):
+    def start(self, start_id: int = 1):
         """
         Starts the evaluation process and returns the results.
+
+        Parameters
+        ----------
+        start_id : int, optional
+            The scenario id to start from, by default 1.
 
         Returns
         -------
@@ -289,15 +293,18 @@ Answer: [PREFER_A|PREFER_B]"""
             A list of dictionaries representing the results of the evaluation.
         """
         sessions = []  # will contain tuple of tuple[ChatSession, bool]
+        
+        prompts = {
+            False: self.get_prompts(False),
+            True: self.get_prompts(True)
+        }
 
-        for reversed in [False, True]:  # test for both non-reversed and reversed types
-            prompts = self.get_prompts(reversed)
-
-            # Repeat scenario
-            for i in range(self.repeat):
+        # Repeat scenario
+        for i in range(start_id - 1, (start_id - 1) + self.repeat):
+            for reversed in [False, True]:  # test for both non-reversed and reversed types
                 scenario = ChatScenario(
                     f"response-{i+1}{'-reversed' if reversed else ''}",
-                    prompts,
+                    prompts[reversed],
                     reversed,
                 )
                 session = scenario.start()  # start API call
@@ -331,7 +338,9 @@ Answer: [PREFER_A|PREFER_B]"""
 
         for file in os.listdir():
             for id in scenario_ids:
-                if file.startswith(id) and file.endswith(".json"):
+                if file.startswith(
+                    id + "-20"  # only match unique file names
+                ) and file.endswith(".json"):
                     # matches {id}-YYYYMMDD-HHMMSS-[messages|responses].json files
                     if "messages.json" in file:
                         message_filenames[id] = file
@@ -379,7 +388,7 @@ Answer: [PREFER_A|PREFER_B]"""
 
 
 # Setup evaluation details
-eval = Evaluation(
+zero_shot_eval = Evaluation(
     # situations to question the AI
     situations=[
         # simple_gain
@@ -445,16 +454,12 @@ eval = Evaluation(
         ),
     ],
     # number of unique AI instances to evaluate
-    repeat=250,
+    repeat=100,
 )
 
-# Evaluate using OpenAI API
-eval.start()
+### Evaluate using OpenAI API
+# eval.start(1)
 
-# # Evaluate using existing API responses in JSON files
-# eval.import_sessions(
-#     [
-#         "response-1",
-#         "response-2",
-#     ]
-# )
+### Evaluate using existing API responses in JSON files
+response_range = 100  # last scenario_id
+zero_shot_eval.import_sessions([f"response-{i + 1}" for i in range(response_range)])

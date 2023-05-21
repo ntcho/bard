@@ -128,9 +128,6 @@ class ChatSession:
             "%Y%m%d-%H%M%S"
         )  # timestamp in YYYYMMDD-HHMMSS format
 
-        if reversed:
-            filename += "-reversed"
-
         # Export all messages from current session to file
         with open(f"{filename}-{current_time}-messages.json", "w") as file:
             json.dump(self.messages, file)
