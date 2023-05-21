@@ -129,11 +129,11 @@ class ChatSession:
         )  # timestamp in YYYYMMDD-HHMMSS format
 
         # Export all messages from current session to file
-        with open(f"{filename}-{current_time}-messages.json", "w") as file:
+        with open(f"responses/{filename}-{current_time}-messages.json", "w") as file:
             json.dump(self.messages, file)
 
         # Export all responses from current session to file
-        with open(f"{filename}-{current_time}-responses.json", "w") as file:
+        with open(f"responses/{filename}-{current_time}-responses.json", "w") as file:
             json.dump(self.responses, file)
 
     def import_session(self, messages_filename: str, responses_filename: str):
@@ -148,11 +148,11 @@ class ChatSession:
             The filename of the JSON file containing responses.
         """
         # Import messages from file
-        with open(messages_filename, "r") as file:
+        with open("responses/" + messages_filename, "r") as file:
             self.messages = json.load(file)
 
         # Import responses from file
-        with open(responses_filename, "r") as file:
+        with open("responses/" + responses_filename, "r") as file:
             self.responses = json.load(file)
 
 

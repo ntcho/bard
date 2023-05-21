@@ -336,7 +336,7 @@ Answer: [PREFER_A|PREFER_B]"""
         # Add ids for reversed scenarios
         scenario_ids.extend([s + "-reversed" for s in scenario_ids])
 
-        for file in os.listdir():
+        for file in os.listdir("responses"):
             for id in scenario_ids:
                 if file.startswith(
                     id + "-20"  # only match unique file names
@@ -379,11 +379,11 @@ Answer: [PREFER_A|PREFER_B]"""
         )  # timestamp in YYYYMMDD-HHMMSS format
 
         # Export results to file
-        with open(f"{current_time}-results.json", "w") as file:
+        with open(f"responses/{current_time}-results.json", "w") as file:
             json.dump(results, file)
 
         # Export answer literals to file
-        with open(f"{current_time}-answers.json", "w") as file:
+        with open(f"responses/{current_time}-answers.json", "w") as file:
             json.dump(answer_literals, file)
 
 
